@@ -7,32 +7,31 @@ import org.springframework.stereotype.Component;
 @ConfigurationProperties("limits-service")
 public class LimitConfigRepo {
 
-	private int maximum;
-	private int minimum;
+  private int maximum;
+  private int minimum;
 
-	protected LimitConfigRepo() {
-	}
+  protected LimitConfigRepo() {}
 
-	public LimitConfigRepo(int maximum, int minimum) {
-		super();
-		this.maximum = maximum;
-		this.minimum = minimum;
-	}
+  public LimitConfigRepo(int maximum, int minimum) {
+    super();
+    this.maximum = maximum;
+    this.minimum = minimum;
+  }
 
-	public int getMaximum() {
-		return maximum;
-	}
+  public int getMaximum() {
+    return maximum;
+  }
 
-	public void setMaximum(int maximum) {
-		this.maximum = maximum;
-	}
+  public void setMaximum(int maximum) {
+    this.maximum = maximum;
+  }
 
-	public int getMinimum() {
-		return minimum;
-	}
+  public int getMinimum() {
+    return minimum;
+  }
 
-	public void setMinimum(int minimum) {
-		this.minimum = minimum;
-	}
+  public void setMinimum(int minimum) {
+    this.minimum = minimum;
+  }
 
 }

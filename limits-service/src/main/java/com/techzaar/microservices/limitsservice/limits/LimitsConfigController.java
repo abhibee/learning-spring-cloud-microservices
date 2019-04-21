@@ -7,13 +7,13 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 public class LimitsConfigController {
 
-	@Autowired
-	private LimitConfigRepo config;
+  @Autowired
+  private LimitConfigRepo config;
 
-	@GetMapping(path = "/limits")
-	public LimitConfig retrieveLimitsFromConfig() {
-		return new LimitConfig(config.getMaximum(), config.getMinimum());
+  @GetMapping(path = "/limits")
+  public LimitConfig retrieveLimitsFromConfig() {
+    return new LimitConfig(config.getMaximum(), config.getMinimum());
 
-	}
+  }
 
 }

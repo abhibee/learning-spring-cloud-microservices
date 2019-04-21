@@ -5,4 +5,5 @@ sudo /usr/local/opt/rabbitmq/sbin/rabbitmq-server
 RABBIT_URI=amqp://localhost java -jar zipkin.jar
 
 
-
+#Using this style guide
+https://raw.githubusercontent.com/google/styleguide/gh-pages/eclipse-java-google-style.xml
