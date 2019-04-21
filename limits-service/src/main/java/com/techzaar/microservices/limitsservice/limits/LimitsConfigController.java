@@ -9,11 +9,11 @@ public class LimitsConfigController {
 
 	@Autowired
 	private LimitConfigRepo config;
-	
-	@GetMapping(path="/limits")
+
+	@GetMapping(path = "/limits")
 	public LimitConfig retrieveLimitsFromConfig() {
-		return new LimitConfig(config.getMaximum(),config.getMinimum());
-		
+		return new LimitConfig(config.getMaximum(), config.getMinimum());
+
 	}
-	
+
 }

@@ -21,47 +21,33 @@ public class CurrencyConversionController {
 
 	private Logger logger = LoggerFactory.getLogger(this.getClass());
 
-	
-@GetMapping(path="/currency-conversion/from/{from}/to/{to}/{quantity}")
-public CurrencyValueBean getCurrencyConvertedValue(@PathVariable String from,@PathVariable String to,@PathVariable BigDecimal quantity ) {
-	
-	
-	Map<String, String> parameterMap = new HashMap<>();
-	parameterMap.put("from", from);
-	parameterMap.put("to", to);
-	ResponseEntity<CurrencyValueBean> currencyValueResponse = 
-			new RestTemplate().getForEntity("http://localhost:8000/currency-exchange/from/{from}/to/{to}", 
-					CurrencyValueBean.class,parameterMap);
-	CurrencyValueBean value = currencyValueResponse.getBody();
-	
-	return new CurrencyValueBean(
-			value.getId(),
-			from, to, 
-			value.getConversionMultiple(),
-			quantity,
-			quantity.multiply(value.getConversionMultiple()), 
-			value.getPort());
-}
+	@GetMapping(path = "/currency-conversion/from/{from}/to/{to}/{quantity}")
+	public CurrencyValueBean getCurrencyConvertedValue(@PathVariable String from, @PathVariable String to,
+			@PathVariable BigDecimal quantity) {
 
-@GetMapping(path="/currency-conversion-feign/from/{from}/to/{to}/{quantity}")
-public CurrencyValueBean getCurrencyConvertedValueFeign(@PathVariable String from,@PathVariable String to,@PathVariable BigDecimal quantity ) {
-	
-	CurrencyValueBean value = feignproxy.getCurrencyExchangeValue(from, to);
+		Map<String, String> parameterMap = new HashMap<>();
+		parameterMap.put("from", from);
+		parameterMap.put("to", to);
+		ResponseEntity<CurrencyValueBean> currencyValueResponse = new RestTemplate().getForEntity(
+				"http://localhost:8000/currency-exchange/from/{from}/to/{to}", CurrencyValueBean.class, parameterMap);
+		CurrencyValueBean value = currencyValueResponse.getBody();
 
-	logger.info("{}",value);
+		return new CurrencyValueBean(value.getId(), from, to, value.getConversionMultiple(), quantity,
+				quantity.multiply(value.getConversionMultiple()), value.getPort());
+	}
 
-	CurrencyValueBean returnval=new CurrencyValueBean(
-			value.getId(),
-			from, to, 
-			value.getConversionMultiple(),
-			quantity,
-			quantity.multiply(value.getConversionMultiple()), 
-			value.getPort());
-	
+	@GetMapping(path = "/currency-conversion-feign/from/{from}/to/{to}/{quantity}")
+	public CurrencyValueBean getCurrencyConvertedValueFeign(@PathVariable String from, @PathVariable String to,
+			@PathVariable BigDecimal quantity) {
 
-	
-	return returnval;
-}
+		CurrencyValueBean value = feignproxy.getCurrencyExchangeValue(from, to);
 
+		logger.info("{}", value);
+
+		CurrencyValueBean returnval = new CurrencyValueBean(value.getId(), from, to, value.getConversionMultiple(),
+				quantity, quantity.multiply(value.getConversionMultiple()), value.getPort());
+
+		return returnval;
+	}
 
 }

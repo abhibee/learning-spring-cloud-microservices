@@ -10,12 +10,11 @@ import com.netflix.zuul.ZuulFilter;
 import com.netflix.zuul.context.RequestContext;
 import com.netflix.zuul.exception.ZuulException;
 
-
 @Component
-public class ZuulLoggingFilter extends ZuulFilter{
+public class ZuulLoggingFilter extends ZuulFilter {
 
 	private Logger logger = LoggerFactory.getLogger(this.getClass());
-	
+
 	@Override
 	public boolean shouldFilter() {
 		return true;
@@ -23,8 +22,8 @@ public class ZuulLoggingFilter extends ZuulFilter{
 
 	@Override
 	public Object run() throws ZuulException {
-		HttpServletRequest req= RequestContext.getCurrentContext().getRequest();
-		logger.info("request uri --> {} ; request --> {}",  req.getRequestURI(), req);
+		HttpServletRequest req = RequestContext.getCurrentContext().getRequest();
+		logger.info("request uri --> {} ; request --> {}", req.getRequestURI(), req);
 
 		return null;
 	}
