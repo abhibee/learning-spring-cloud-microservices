@@ -1,0 +1,8 @@
+#Run Rabbit MQ.. Rabit MQ needs Docker server to be down since it uses the same port and there is a conflict otherwise.
+sudo /usr/local/opt/rabbitmq/sbin/rabbitmq-server
+
+#Run the following to start zipkin server and connect to MQ server (Find zipkin.jar in this project)
+RABBIT_URI=amqp://localhost java -jar zipkin.jar
+
+
+
