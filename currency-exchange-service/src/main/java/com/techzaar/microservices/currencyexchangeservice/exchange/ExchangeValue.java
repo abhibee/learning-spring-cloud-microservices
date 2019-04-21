@@ -64,6 +64,12 @@ public class ExchangeValue {
 		this.conversionMultiple = conversionMultiple;
 	}
 
+	@Override
+	public String toString() {
+		return "ExchangeValue [id=" + id + ", from=" + from + ", to=" + to + ", conversionMultiple="
+				+ conversionMultiple + ", port=" + port + "]";
+	}
+
 
 
 }
