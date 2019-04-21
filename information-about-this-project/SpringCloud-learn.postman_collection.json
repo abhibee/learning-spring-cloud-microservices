@@ -1,0 +1,64 @@
+{
+	"info": {
+		"_postman_id": "f3e61a79-fd61-4899-aada-8d356be5f0dc",
+		"name": "SpringCloud-learn",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "http://localhost:8000/currency-exchange/from/USD/to/INR",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "http://localhost:8000/currency-exchange/from/USD/to/INR",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"currency-exchange",
+						"from",
+						"USD",
+						"to",
+						"INR"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:8100/currency-conversion/from/USD/to/INR/1000",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "http://localhost:8100/currency-conversion/from/USD/to/INR/1000",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8100",
+					"path": [
+						"currency-conversion",
+						"from",
+						"USD",
+						"to",
+						"INR",
+						"1000"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
