@@ -9,3 +9,6 @@ RABBIT_URI=amqp://localhost java -jar zipkin.jar
 
 #Using this style guide
 https://raw.githubusercontent.com/google/styleguide/gh-pages/eclipse-java-google-style.xml
+
+#Lots of good information about the setup, ports, local links etc. here
+https://github.com/abhibee/spring-microservices/tree/master/03.microservices
